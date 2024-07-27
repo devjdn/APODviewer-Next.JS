@@ -1,3 +1,7 @@
+'use client';
+
+import ThemeSwitcher from "./theme-switch";
+
 export default function Sidebar() {
   return(
     <div className="sidebar">
@@ -40,6 +44,9 @@ export default function Sidebar() {
           </a>
         </ul>
       </nav>
+      <div className="controls">
+        <ThemeSwitcher/>
+      </div>
     </div>
   );
 }

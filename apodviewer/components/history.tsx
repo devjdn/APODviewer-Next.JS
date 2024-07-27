@@ -49,7 +49,7 @@ const Controls: React.FC<{ date: string, setDate: (date: string) => void, fetchA
           <button onClick={fetchApod}><CircleArrowUp/></button>
         </form>
         </div>
-        <div className="date-form-wrapper">
+        {/* <div className="date-form-wrapper">
           <h3>Select a range of dates</h3>
           <form onSubmit={handleSubmit} className="historic-date-selector">
             <input
@@ -65,7 +65,7 @@ const Controls: React.FC<{ date: string, setDate: (date: string) => void, fetchA
             />
             <button onClick={fetchApod}><CircleArrowUp/></button>
           </form>
-        </div>
+        </div> */}
       </div>
     );
 };

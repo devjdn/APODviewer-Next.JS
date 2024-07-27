@@ -45,47 +45,41 @@
   --links: #007bff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-bg-clr: #000000;
-    --body-bg-gradient: 
-      radial-gradient(at 16% 69%, hsla(254,75%,48%,0.12) 0px, transparent 50%),
-      radial-gradient(at 99% 24%, hsla(273,0%,0%,1) 0px, transparent 50%),
-      radial-gradient(at 45% 61%, hsla(17,0%,0%,1) 0px, transparent 50%),
-      radial-gradient(at 82% 26%, hsla(240,80%,54%,0.3) 0px, transparent 50%);
+.dark {
+  --body-bg-clr: #000000;
+  --body-bg-gradient: 
+    radial-gradient(at 16% 69%, hsla(254,75%,48%,0.12) 0px, transparent 50%),
+    radial-gradient(at 99% 24%, hsla(273,0%,0%,1) 0px, transparent 50%),
+    radial-gradient(at 45% 61%, hsla(17,0%,0%,1) 0px, transparent 50%),
+    radial-gradient(at 82% 26%, hsla(240,80%,54%,0.3) 0px, transparent 50%);
 
-    --sidebar: #0b0b0b;
-    --sidebar-text: #e0e0e0;
-    --sidebar-border: 1px solid #272727;
-    --sidebar-input: #2a2a2a;
-    --sidebar-input-text: #e0e0e0;
-    --sidebar-input-placeholder: #888;
-    --sidebar-input-border: 1px solid #3e3e3e;
+  --sidebar: #0b0b0b;
+  --sidebar-text: #e0e0e0;
+  --sidebar-border: 1px solid #272727;
+  --sidebar-input: #2a2a2a;
+  --sidebar-input-text: #e0e0e0;
+  --sidebar-input-placeholder: #888;
+  --sidebar-input-border: 1px solid #3e3e3e;
+  --header: #00000078;
+  --header-border: 1px solid #eeeeee;  
 
-    --header: #00000078;
-    --header-border: 1px solid #eeeeee;  
+  --main-content: #101010;
+  --main-content-text: #fff;
+  --main-content-subtext: #888;
+  --overlay-background: #00000040;
+  --overlay-content: #fff;
+  --tab-holder: #131313;
+  --tab-border: 1px solid #222222;
+  --tab-hover: #242424;
+  --tab-active: #414141;
+  --empty-text: #686868;
+
+  --container: #1c1c1c;
+  --container-text: #e0e0e0;
+  --container-headings: #fff;
+  --container-border: 1px solid #3a3a3a;
   
-    --main-content: #101010;
-    --main-content-text: #fff;
-    --main-content-subtext: #888;
-
-    --overlay-background: #00000040;
-    --overlay-content: #fff;
-
-    --tab-holder: #131313;
-    --tab-border: 1px solid #222222;
-    --tab-hover: #242424;
-    --tab-active: #414141;
-
-    --empty-text: #686868;
-  
-    --container: #1c1c1c;
-    --container-text: #e0e0e0;
-    --container-headings: #fff;
-    --container-border: 1px solid #3a3a3a;
-    
-    --links: #1e90ff;
-  }
+  --links: #1e90ff;
 }
 
 body {
@@ -151,6 +145,26 @@ header.global-header{
           &:hover{
             background: var(--tab-hover);
           }
+        }
+      }
+    }
+    .controls{
+      button{
+        display: flex;
+        align-items: center;
+        padding: 8px 14px;
+        gap: 8px;
+        border-radius: 8px;
+
+        p{
+          font-weight: 600;
+          color: var(--sidebar-text);
+        }
+        svg{
+          stroke: var(--sidebar-text);
+        }
+        &:hover{
+          background: var(--tab-hover);
         }
       }
     }
@@ -231,7 +245,7 @@ header.global-header{
         display: flex;
         flex-direction: column;
         gap: 20px;
-        max-width: 600px;
+        max-width: 800px;
       }
 
       .apod{
@@ -299,6 +313,7 @@ header.global-header{
           display: flex;
           gap: 32px;
           font-weight: 500;
+          width: fit-content;
           color: var(--sidebar-input-text);
 
           .date-form-wrapper{
