@@ -253,6 +253,7 @@ header.global-header{
         grid-template-columns: repeat(2,1fr);
         border-radius: 20px;
         width: fit-content;
+        width: 100%;
 
 
         .expand-overlay{
@@ -289,7 +290,6 @@ header.global-header{
 
         img,iframe{
           border-radius: inherit;
-          max-width: 1000px;
           width: 100%;
           z-index: 1;
           grid-area: 1/1/2/3;
