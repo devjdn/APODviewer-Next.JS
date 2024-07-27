@@ -1,6 +1,6 @@
 'use client';
 
-import ThemeSwitcher from "./theme-switch";
+// import ThemeSwitcher from "./theme-switch";
 
 export default function Sidebar() {
   return(
@@ -45,7 +45,7 @@ export default function Sidebar() {
         </ul>
       </nav>
       <div className="controls">
-        <ThemeSwitcher/>
+        {/* <ThemeSwitcher/> */}
       </div>
     </div>
   );
