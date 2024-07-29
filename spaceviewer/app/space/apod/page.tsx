@@ -6,19 +6,19 @@ export default function ViewPage() {
 
     const tabs = [
         { label: 'Daily', content: (
-            <div className="daily-tab tab-page">
+            <div className="daily-tab tab-page" id="daily">
                 <DailyAPOD/>
             </div>
         )},
 
         { label: 'History', content: (
-            <div className="history-tab tab-page">
+            <div className="history-tab tab-page" id="history">
                 <HistoryAPOD/>
             </div>
         )},
 
         { label: 'Generator', content: (
-            <div className="generator-tab tab-page">
+            <div className="generator-tab tab-page" id="generator">
                 
             </div>
         )},

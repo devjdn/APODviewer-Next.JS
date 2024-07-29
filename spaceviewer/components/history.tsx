@@ -1,7 +1,8 @@
 'use client';
 
 import { ArrowUpRight, CircleArrowUp, CornerRightUp } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import APODcontent from "./apod-content";
 
 interface APODData {
     date: string;
@@ -77,7 +78,7 @@ const ApodComponent: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   // Fetch APOD data for the selected date
-  const fetchApod = async () => {
+  const fetchApod = useCallback(async () => {
     if (!date) {
       setError('Please select a date.');
       return;
@@ -92,7 +93,7 @@ const ApodComponent: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [date]);
 
   return (
     <>
@@ -106,38 +107,8 @@ const ApodComponent: React.FC = () => {
         <p>{error}</p>
       }
       {historicData && (
-        <>
-          <div className="apod-info">
-            <h1>{historicData.title}</h1>
-            <p>{historicData.explanation}</p>
-          </div>
-          <div className="apod">
-          {historicData.media_type === 'image' ? (
-            <img src={historicData.url} alt={historicData.title} />
-          ) : (
-            <iframe
-              src={historicData.url}
-              title={historicData.title}
-              width="100%"
-              height="500px"
-              frameBorder="0"
-              allow="autoplay; fullscreen"
-            />
-          )}
-          <div className="expand-overlay">
-            <div className="expand-text">
-              <a href={historicData.hdurl} target="_blank">
-                <p>Open image externally</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                  <path fillRule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-                  <path fillRule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-        </>
-      )}
+      <APODcontent url={historicData.url} title={historicData.title} explanation={historicData.explanation} date={historicData.date} hdurl={historicData.hdurl} copyright={historicData.copyright} media_type={historicData.media_type} />
+    )}
     </>
   );
 };
