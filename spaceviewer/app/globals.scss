@@ -374,6 +374,11 @@ main.home{
         gap: 50px;
       }
 
+      hr{
+        border-top: var(--tab-border);
+        width: 8px;
+      }
+
       //-----------------APOD DATA FROM DAILY AND HISTORY PAGE-----------------//
       .apod-info{
         display: flex;
@@ -471,11 +476,6 @@ main.home{
             align-items: center;
             gap: 8px;
   
-            hr{
-              border-top: var(--tab-border);
-              width: 8px;
-            }
-
             input{
               background: var(--input);
               border-radius: 6px;
@@ -537,6 +537,10 @@ main.home{
         gap: 20px;
         width: 100%;
 
+        hr{
+          width: 100%;
+        }
+
         &.two-col{
           grid-template-columns: repeat(2, 1fr);
         }
@@ -554,17 +558,25 @@ main.home{
             display: flex;
             justify-content: space-between;
             position: relative;
+            padding-inline: 10px;
 
             .apod-options{
               position: absolute;
-              top: -10px;
+              top: -190px;
+              right: 10px;
               padding: 5px;
               background: var(--tab-holder);
               border: var(--tab-border);
               border-radius: 14px;
               padding: 10px;
               box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-              display: none;
+
+              &[aria-hidden="true"] {
+                display: none;
+              }
+              &[aria-hidden="false"] {
+                display: block;
+              }
 
 
               ul.apod-options-list{
@@ -572,12 +584,18 @@ main.home{
                 flex-direction: column;
                 gap: 5px;
 
+
                 li{
                   button{
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     gap: 5px;
+                    width: 100%;
+                    padding: 10px 0;
+                    text-align: center;
+                    width: 100px;
+                    border-radius: 5px;
   
                     &:hover{
                       background: var(--tab-hover);
@@ -599,6 +617,42 @@ main.home{
                   stroke: var(--main-content-text);
                 }
               }
+            }
+          }
+
+          .apod-popup{
+            position: absolute;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(24px) saturate(1);
+            height: 100%;
+            width: 100%;
+            z-index: 250;
+            padding: 20px;
+            background: var(--overlay-background);
+
+            &[aria-hidden="false"] {
+              display: block;              
+            }
+            &[aria-hidden="true"] {
+              display: none;
+            }
+            header{
+              margin-bottom: 20px;
+              display: flex;
+
+              button{
+                margin-left: auto;
+
+                svg{
+                  stroke: var(--main-content-text);
+                }
+              }
+            }
+            .popup-content{
+              display: grid;
+              grid-template-columns: 500px 1fr;
+              gap: 50px;
             }
           }
         }
