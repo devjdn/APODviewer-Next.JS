@@ -1,8 +1,8 @@
 'use client';
 
-import { ArrowUpRight, CircleArrowUp, CornerRightUp } from "lucide-react";
 import React, { useState, useEffect, useCallback } from "react";
 import APODcontent from "./apod-content";
+import Controls from "./controls";
 
 interface APODData {
     date: string;
@@ -30,49 +30,8 @@ const fetchHistoricApod = async (date: string): Promise<APODData> => {
     }
 };
 
-const Controls: React.FC<{ date: string, setDate: (date: string) => void, fetchApod: () => void }> = ({ date, setDate, fetchApod }) => {
-
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    fetchApod();
-  };
-
-    return (
-      <div className="apod-controls">
-        <div className="date-form-wrapper">
-        <h3>Select a date</h3>
-        <form onSubmit={handleSubmit} className="historic-date-selector">
-          <input
-            type="date" 
-            value={date} 
-            onChange={(event) => setDate(event.target.value)} 
-          />
-          <button onClick={fetchApod}><CircleArrowUp/></button>
-        </form>
-        </div>
-        {/* <div className="date-form-wrapper">
-          <h3>Select a range of dates</h3>
-          <form onSubmit={handleSubmit} className="historic-date-selector">
-            <input
-              type="date" 
-              value={date}
-              onChange={(event) => setDate(event.target.value)} 
-            />
-            <hr/>
-            <input
-              type="date" 
-              value={date}
-              onChange={(event) => setDate(event.target.value)} 
-            />
-            <button onClick={fetchApod}><CircleArrowUp/></button>
-          </form>
-        </div> */}
-      </div>
-    );
-};
-
 const ApodComponent: React.FC = () => {
-  const [date, setDate] = useState<string>('');
+  const [date, setDate] = useState<string>('1995-06-16');
   const [historicData, setHistoricData] = useState<APODData | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -95,20 +54,31 @@ const ApodComponent: React.FC = () => {
     }
   }, [date]);
 
+  useEffect(() => {
+    fetchApod();
+  }, []);
+
   return (
     <>
-      <Controls date={date} setDate={setDate} fetchApod={fetchApod} />
+      <Controls date={date} setDate={setDate} fetchApod={fetchApod} page="History" />
       {loading && 
         <div className="empty-message">
           <p>The light has not reached earth yet</p>
         </div>
       }
       {error && 
-        <p>{error}</p>
+        <div className="empty-message">
+          <p>{error}</p>
+        </div>
       }
       {historicData && (
-      <APODcontent url={historicData.url} title={historicData.title} explanation={historicData.explanation} date={historicData.date} hdurl={historicData.hdurl} copyright={historicData.copyright} media_type={historicData.media_type} />
-    )}
+        <APODcontent url={historicData.url} title={historicData.title} explanation={historicData.explanation} date={historicData.date} hdurl={historicData.hdurl} copyright={historicData.copyright} media_type={historicData.media_type} />
+      )}
+      {!historicData && (
+        <div className="empty-message">
+          <p>The light has not reached earth yet</p>
+        </div>
+      )}
     </>
   );
 };

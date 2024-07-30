@@ -1,6 +1,7 @@
 import Tabs from "@/components/page-tabs";
 import DailyAPOD from "@/components/daily-apod";
 import HistoryAPOD from "@/components/history";
+import Generator from "@/components/generator";
 
 export default function ViewPage() {
 
@@ -19,7 +20,7 @@ export default function ViewPage() {
 
         { label: 'Generator', content: (
             <div className="generator-tab tab-page" id="generator">
-                
+                <Generator/>
             </div>
         )},
     ];

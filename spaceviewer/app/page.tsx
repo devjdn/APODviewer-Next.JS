@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Satellite, Orbit, Book, CodeXml, Rocket } from "lucide-react";
+import Header from "@/components/header";
 
 export default function Home() {
 
@@ -25,6 +26,7 @@ export default function Home() {
 
   return (
     <main className="home">
+      <Header/>
       <div className="intro-text">
         <h1>Explore the depths of space, closer to home, and further beyond.</h1>
       </div>
