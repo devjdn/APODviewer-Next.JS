@@ -3,7 +3,7 @@ import DailyAPOD from "@/components/daily-apod";
 import HistoryAPOD from "@/components/history";
 import Generator from "@/components/generator";
 
-export default function ViewPage() {
+export default function APODPage() {
 
     const tabs = [
         { label: 'Daily', content: (
@@ -26,7 +26,7 @@ export default function ViewPage() {
     ];
 
     return(
-        <main className="view-page">
+        <main className="apod-page">
             <Tabs tabs={tabs}/>
         </main>
     );

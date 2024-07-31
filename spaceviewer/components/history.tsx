@@ -61,11 +61,6 @@ const ApodComponent: React.FC = () => {
   return (
     <>
       <Controls date={date} setDate={setDate} fetchApod={fetchApod} page="History" />
-      {loading && 
-        <div className="empty-message">
-          <p>The light has not reached earth yet</p>
-        </div>
-      }
       {error && 
         <div className="empty-message">
           <p>{error}</p>

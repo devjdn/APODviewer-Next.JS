@@ -29,7 +29,7 @@ export default function Nav() {
   ];
 
   return (
-    <nav className="sidebar-nav">
+    <nav className="nav">
       {linkGroup.map((group, groupIndex) => (
           <div key={group.groupName} className="link-group">
             <h4>{group.groupName}</h4>
