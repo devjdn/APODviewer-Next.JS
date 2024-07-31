@@ -45,7 +45,7 @@ export default function GuidePage() {
                         <h3>Grid menu (Generator tab)</h3>
                         <Image src={ControlGridMenu} alt="Screenshot of the grid menu that is linked to the images on the generator tab"/>
                         <p>This menu appears when you click the three dot icon below the images on the generator tab. When pressed, you are presented with three options: Details, Open, and Share.</p>
-                        <p>If you select details, you will open up a popup on the screen, which contains an enlarged version of the image in its original aspect ratio, the title of the image, alongside it's corresponding explanation paragraph, date published, and its copyright owner.</p>
+                        <p>If you select details, you will open up a popup on the screen, which contains an enlarged version of the image in its original aspect ratio, the title of the image, alongside it&apos;s corresponding explanation paragraph, date published, and its copyright owner.</p>
                         <p>If you select open, the image will be opened externally in a new tab, in its original format/aspect-ratio/quality, straight from the NASA-provided image URL.</p>
                         <p>If you select share, you will be presented with the option to share the image to different platforms. This is done using the native webshare API.</p>
                     </article>
