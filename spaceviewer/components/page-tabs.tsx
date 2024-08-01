@@ -16,8 +16,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
 
   return (
     <>
-    <header className="view-header">
-      <div className="view-tabs">
+    <header className="tab-header">
+      <div className="tabs">
         {tabs.map((tab, index) => (
           <button
             key={index}

@@ -1,5 +1,4 @@
 import { Orbit } from "lucide-react";
-import Nav from "./nav";
 
 export default function Header() {
     return(

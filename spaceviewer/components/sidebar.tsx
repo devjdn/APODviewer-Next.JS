@@ -1,6 +1,6 @@
 'use client';
 
-import Nav from "./nav";
+import Nav from "./global-nav";
 import { Orbit } from "lucide-react";
 
 export default function Sidebar() {

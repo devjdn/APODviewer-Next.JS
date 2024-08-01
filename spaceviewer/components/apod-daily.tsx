@@ -32,7 +32,6 @@ const DailyAPOD : React.FC= () => {
               throw new Error('Failed to fetch data from NASA API');
             }
             const data = await response.json();
-            console.log(data);
             setApodData(data);
           } catch (err: any) {
             setError(err.message);

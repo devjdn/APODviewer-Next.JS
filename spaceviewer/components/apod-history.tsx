@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import APODcontent from "./apod-content";
-import Controls from "./controls";
+import Controls from "./apod-controls";
 
 interface APODData {
     date: string;

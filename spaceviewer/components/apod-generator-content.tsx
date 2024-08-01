@@ -25,7 +25,14 @@ const APODGridContent : React.FC<APODContentProps> = ({hdurl, media_type, title,
 
   const toggleDetailsPopup = () => {
     setIsDetailsOpen(!isDetailsOpen);
+
+    if (!isDetailsOpen){
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
   }
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -65,21 +72,21 @@ const APODGridContent : React.FC<APODContentProps> = ({hdurl, media_type, title,
           <div className="apod-options" aria-hidden={!isOpen} ref={menuRef}>
             <ul className="apod-options-list">
               <li className="apod-options-list-item">
-                <button onClick={toggleDetailsPopup}>
+                <button className="option-btn" onClick={toggleDetailsPopup}>
                   <p>Details</p>
                 </button>
               </li>
               <hr />
               <li className="apod-options-list-item">
                 <a href={hdurl} target="_blank">
-                  <button>
+                  <button className="option-btn">
                     <p>Open</p>
                   </button>
                 </a>
               </li>
               <hr />
               <li className="apod-options-list-item">
-                <button>
+                <button className="option-btn">
                   <p>Share</p>
                 </button>
               </li>
@@ -88,7 +95,7 @@ const APODGridContent : React.FC<APODContentProps> = ({hdurl, media_type, title,
         </div>
         <div className="apod-popup" aria-hidden={!isDetailsOpen}>
           <header>
-            <button onClick={toggleDetailsPopup}>
+            <button className="popup-close-btn" onClick={toggleDetailsPopup}>
               <X/>
             </button>
           </header>

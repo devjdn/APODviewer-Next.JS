@@ -1,8 +1,8 @@
 'use client'; 
 
 import React, { useState, useEffect } from "react";
-import Controls from "./controls";
-import APODGridContent from "./generator-apod-content";
+import Controls from "./apod-controls";
+import APODGridContent from "./apod-generator-content";
 
 interface APODData {
     date: string;

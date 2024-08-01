@@ -1,7 +1,7 @@
 import Image from "next/image";
+import SpaceHero from "@/guide-imgs/hero.jpg";
 import Link from "next/link";
 import { Satellite, Orbit, Book, CodeXml, Rocket } from "lucide-react";
-import Header from "@/components/header";
 
 export default function Home() {
 
@@ -26,32 +26,11 @@ export default function Home() {
 
   return (
     <main className="home">
-      <Header/>
-      <div className="intro-text">
+      <div className="hero">
+        <Image src={SpaceHero} alt="Earth at night, from the ISS"/>
         <h1>Explore the depths of space, closer to home, and further beyond.</h1>
       </div>
-      <div className="site-nav">
-        {siteLinks.map((links, linkIndex) => (
-          <div key={linkIndex} className="link-group">
-            <h2>{links.groupName}</h2>
-            <ul key={links.groupName} className="nav-list">
-              {links.links.map((link, linkIndex) => (
-                <Link key={linkIndex} href={link.url}>
-                  <li key={link.name} className="link-item">
-                    <header>
-                      <div className="link-icon">{link.icon}</div>
-                      <h3>{link.name}</h3>
-                    </header>
-                    <div className="link-description">
-                      <p>{link.text}</p>
-                    </div>
-                  </li>
-                </Link>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+      
     </main>
   );
 }
