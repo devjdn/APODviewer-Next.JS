@@ -11,7 +11,7 @@ export default function GuidePage() {
     return(
         <>
             <div className="intro">
-                <h2>How to use SPACEviewer</h2>
+                <h2>How to use SPACEViewer</h2>
             </div>
             <section className="apod-guide guide-section">
                 <h3>APODviewer</h3>

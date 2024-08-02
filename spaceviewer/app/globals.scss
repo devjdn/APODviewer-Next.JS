@@ -6,6 +6,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -45,7 +46,7 @@
     //---BACKGROUNDS---//
     --primary: #000;
     --secondary: #080808;
-    --tertiary: #222;
+    --tertiary: #161616;
   
     //---SPECIFIC BACKGROUNDS---//
     --translucent: #000000d9;
@@ -97,7 +98,7 @@ h2{
 }
 h3{
   font-size: 1.5em;
-  font-weight: 500;
+  font-weight: 600;
 }
 h4{
   font-size: 1.3em;
@@ -168,32 +169,73 @@ main{
   gap: 30px;
 
   //------HOME------//
-  &.home{
-    padding: 0;
-  }
 
   .hero{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     width: 100%;
-    height: calc(100vh - 111px);
+    height: calc(100vh - 171px);
 
     img{
       grid-area: 1/1/2/3;
       width: 100%;
-      height: calc(100vh - 111px);
+      height: calc(100vh - 171px);
       object-fit: cover;
       object-position: 30% 10%;
-      border-radius: 0;
+      border-radius: 20px;
     }
 
-    h1{
+    .hero-content{
       grid-area: 1/1/2/3;
       padding: 20px;
-      z-index: 4;
-      color: #fff;
       place-self: center;
+      z-index: 4;
       text-align: center;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      h1{
+        color: #fff;
+      }
+
+      a{
+        width: fit-content;
+        margin-inline: auto;
+
+        .about-directive{
+          background: #fff;
+          border-radius: 100vw;
+          padding: 10px 16px;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          gap: 8px;
+        }
+
+        p{
+          color: #000;
+        }
+        svg{
+          stroke: #000;
+        }
+      }
+    }
+  }
+
+  .about{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+
+    article{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: var(--tertiary);
+      border-radius: 20px;
+      padding: 40px;
     }
   }
 
@@ -481,7 +523,16 @@ main{
 
 //------MEDIA QUERIES------//
 @media screen and (max-width: 768px){
+  h1{
+    font-size: 2em;
+  }
   main{
+
+    .about{
+      display: flex;
+      flex-direction: column;
+    }
+
     .guide-section{
       .feature-grid{
         display: flex;

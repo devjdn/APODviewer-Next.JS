@@ -10,8 +10,8 @@ export default function Nav() {
 
   const links = [
     { name: 'Home', url: '/', icon: <Home /> },
-    { name: 'APODviewer', url: '/apod', icon: <Satellite /> },
-    { name: 'MARSviewer', url: '/mars', icon: <Orbit /> },
+    { name: 'APODViewer', url: '/apod', icon: <Satellite /> },
+    { name: 'MARSViewer', url: '/mars', icon: <Orbit /> },
     { name: 'Guide', url: '/guide', icon: <Book /> },
     { name: 'NASA API documentation', url: 'https://api.nasa.gov/#apod', icon: <Rocket /> },
     { name: 'Official APOD website', url: 'https://apod.nasa.gov/apod/astropix.html', icon: <Rocket /> },

@@ -1,36 +1,38 @@
 import Image from "next/image";
 import SpaceHero from "@/guide-imgs/hero.jpg";
-import Link from "next/link";
-import { Satellite, Orbit, Book, CodeXml, Rocket } from "lucide-react";
+import { CircleArrowDown } from "lucide-react";
 
 export default function Home() {
 
-  const siteLinks = [
-    {
-      groupName: 'On-site links',
-      links: [
-        { name: 'APODviewer', url: '/space/apod', icon: <Satellite />, text: "APODviewer is a service allowing users to view the different photos and videos that have been part of NASA's Astronomy Picture Of the Day series." },
-        { name: 'MARSviewer', url: '/space/mars', icon: <Orbit />, text: "MARSviewer is similar to APODviewer in the fact that it allows users to view media from a NASA API, however this service is for their Mars Rover API." },
-        { name: 'Guide', url: '/space/guide', icon: <Book />, text: "A comprehensive guide on how to use all the features on our site. As well as explaining some of the methods being used throughout." },
-      ]
-    },
-    {
-      groupName: 'External links',
-      links: [
-        { name: 'NASA API documentation', url: 'https://api.nasa.gov/#apod', icon: <Rocket />, text: "View the official NASA API documentation for their various API's. NASA has a series of API's publicly available, with links to supporting documentation." },
-        { name: 'Official APOD website', url: 'https://apod.nasa.gov/apod/astropix.html', icon: <Rocket />, text: "Take a look at the official APOD website, by NASA themselves. It's remained largely unchanged since the 90's, and has a quite a retro user experience." },
-        { name: 'SPACEviewer Github', url: 'https://github.com/devjdn/APODviewer-Next.JS', icon: <CodeXml />, text: "We made the source code for this site publicly available for viewing on Github, so you can see how this website works, feel free to drop a follow and a star :)" },
-      ],
-    }
-  ]
-
   return (
-    <main className="home">
+    <>
       <div className="hero">
         <Image src={SpaceHero} alt="Earth at night, from the ISS"/>
-        <h1>Explore the depths of space, closer to home, and further beyond.</h1>
+        <div className="hero-content">
+          <h1>Explore the depths of space, closer to home, and further beyond.</h1>
+          <a className="about-link" href="#about">
+            <div className="about-directive"><p>About SPACEViewer</p><CircleArrowDown/></div>
+          </a>
+        </div>
       </div>
-      
-    </main>
+      <div className="about" id="about">
+        <article className="about-article">
+          <h3>What is SPACEViewer</h3>
+          <p>SPACEViewer is an astronomy/astrophotography gallery website made to allow fellow space admirers to view some of the most stunning images taken of our universe. SPACEViewer has numerous different features to give you the best experience possible. We have APODViewer, MARSViewer, and a guide to ensure you know how to use the site. As well as this, we have links to the official NASA API docs, and the SPACEViewer Github.</p>
+        </article>
+        <article className="about-article">
+          <h3>APODViewer</h3>
+          <p>APODViewer is a section of SPACEViewer that utilises the NASA Astronomy Picture Of the Day API to serve you a daily picture/video, alongside its title, explanation, date, and copyright owner. On APODViewer, you can view the daily image/video, interact with a date picker to view past APOD images/videos, and use our number input to be fed back media from random dates, with the option to view its details, share it, and open it externally.</p>
+        </article>
+        <article className="about-article">
+          <h3>MARSViewer</h3>
+          <p>MARSViewer is a feature of SPACEViewer that leverages the NASA Mars Rover Photos API to deliver a daily dose of images captured by various Mars rovers. On MARSViewer, you can explore the latest images transmitted from the Martian surface, along with detailed information about the rover, camera, and the Sol (Martian day) when the photo was taken. You can interact with a date picker to browse photos from previous missions, use our random date generator to discover images from different days, and enjoy options to view detailed metadata, share captivating Martian landscapes, and open the images in an external viewer for a closer look.</p>
+        </article>
+        <article className="about-article">
+          <h3>For developers</h3>
+          <p>SPACEViewer includes convenient links to the official NASA API documentation for both the Astronomy Picture of the Day (APOD) and Mars Rover Photos (MRP) APIs, ensuring you have direct access to detailed information and usage guidelines. Additionally, you can visit the official APOD website for daily updates and an extensive archive of past images and videos. For developers interested in exploring or contributing to the project, we provide a link to the SPACEViewer GitHub repository, where you can find the source code and collaborate with the community.</p>
+        </article>
+      </div>
+    </>
   );
 }
