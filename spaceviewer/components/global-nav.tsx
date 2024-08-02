@@ -11,7 +11,6 @@ export default function Nav() {
   const links = [
     { name: 'Home', url: '/', icon: <Home /> },
     { name: 'APODViewer', url: '/apod', icon: <Satellite /> },
-    { name: 'MARSViewer', url: '/mars', icon: <Orbit /> },
     { name: 'Guide', url: '/guide', icon: <Book /> },
     { name: 'NASA API documentation', url: 'https://api.nasa.gov/#apod', icon: <Rocket /> },
     { name: 'Official APOD website', url: 'https://apod.nasa.gov/apod/astropix.html', icon: <Rocket /> },

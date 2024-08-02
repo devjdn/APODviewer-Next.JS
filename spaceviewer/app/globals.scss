@@ -236,6 +236,10 @@ main{
       background: var(--tertiary);
       border-radius: 20px;
       padding: 40px;
+
+      &:nth-of-type(3){
+        grid-area: 2/1/3/3;
+      }
     }
   }
 
